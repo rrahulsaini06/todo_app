@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+body {
+    background-color: powderblue;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+ 
+
+  .main-div{
+   width: 100%;
+   box-sizing: border-box;
+   margin: auto;
+   border: 2px solid green;
+   height: 700px;
+  }
+  .side-bar{
+  height: 690px;
+  width: 20%;
+  background-color: aliceblue;
+  float: left;
+  border: 2px solid black;
+
+  }
+  .container{
+    border: 2px solid black;
+     width: 78%;
+     float: inline-end;
+     height: 690px;
+
+  }
+    
+  .box{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 20%;
+    float: left;
+    margin: 20px;
+    padding: 20px;
+    height: 200px;
+  }
