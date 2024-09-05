@@ -1,5 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import TaskDetail from './components/taskDetail';
+
+
  const tasks =[{
   "_id": {
     "$oid": "66d95d7fc13b991c6be8d41a"
@@ -31,11 +34,7 @@ import './App.css';
 function App() {
   const rows = [];
   for (let i = 0; i < tasks.length; i++) {
-      rows.push(( <div id ="social_media" class="box">
-        <h3 >{tasks[i].taskIdea}</h3>
-       <p>{tasks[i].taskDes}</p>
-    </div>));
-    console.log("ROWS ARREY",rows)
+      rows.push(<TaskDetail task={tasks[i]} />)
   }
   return (
     <div class="main-div">
