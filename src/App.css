@@ -104,3 +104,11 @@ body {
     border-radius: 4px;
     margin-left: 20px;
    }
+  .delete-btn{
+  margin-left: 20px;
+  width: 150px;
+  height: 25px;
+  border-radius: 4px;
+  background-color: blue;
+  color: white;
+}
