@@ -2,7 +2,7 @@
 
 import { Component } from "react";
 import TaskDetail from "./taskDetail"; 
-
+// import fetch from "fetch"
 // class Greeting extends Component {
 //   constructor() {
 //     super();
@@ -26,55 +26,42 @@ export  class TaskList extends Component{
     
     constructor(){
         super();
+        this.state = {
+            tasks: [],
+            DataisLoaded: false,
+        };
+        console.log(this.tasks);
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:3000/tasks", {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-RapidAPI-Key': 'your-api-key'
+            }
+          } )
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    tasks: json.data,
+                    DataisLoaded: true,
+                });
+            }).catch((err)=>{
+                console.log(err);
+            })
     }
     
     render(){
-        const tasks = [
-            {
-              _id: {
-                $oid: "66d95d7fc13b991c6be8d41a",
-              },
-              taskIdea: "manage books",
-              taskId: 12345,
-              taskDes: "manage books from others",
-              __v: 0,
-            },
-            {
-              _id: {
-                $oid: "66d95db0c13b991c6be8d41e",
-              },
-              taskIdea: "buy books",
-              taskId: 12346,
-              taskDes: "buy books from market",
-              __v: 0,
-            },
-            {
-              _id: {
-                $oid: "66d95decc13b991c6be8d420",
-              },
-              taskIdea: "take food",
-              taskId: 12347,
-              taskDes: "buy food from market",
-              __v: 0,
-            },
-            {
-              _id: {
-                $oid: "66dacdddbf4a6544c6ac4b66",
-              },
-              taskIdea: "take train ticket",
-              taskId: 123420,
-              taskDes: "take a train ticket  from bus stop",
-              createdAt: "2024-09-06T09:39:41.067Z",
-              updatedAt:"2024-09-06T09:39:41.067Z",
-              __v: 0,
-            },
-          ];
+       
+
         const rows = [];
-        for (let i = 0; i < tasks.length; i++) {
-          rows.push(<TaskDetail task={tasks[i]} />);
+        for (let i = 0; i < this.state.tasks.length; i++) {
+          rows.push(<TaskDetail task={this.state.tasks[i]} />);
         }
         return(
-            <div class="container">
+            <div className="container">
             <h2> sticky wall</h2>
             {rows}
             

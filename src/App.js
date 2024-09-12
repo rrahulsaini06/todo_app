@@ -1,28 +1,28 @@
 // import logo from './logo.svg';
+// eslint-disable-next-line 
 import "./App.css";
 import TaskDetail from "./components/taskDetail";
 import Greeting from "./components/taskList";
 import {TaskList} from "./components/taskList"
- 
-
+import {AddTask} from "./components/addTask"
 function App() {
  
   return (
-    <div class="main-div">
-      <div class="side-bar">
-        <div class="menu">
+    <div className="main-div">
+      <div className="side-bar">
+        <div className="menu">
           <h3>
             <strong>menu</strong>
           </h3>
-          <input class="Search" type="text" placeholder="Search.." />
+          <input className="Search" type="text" placeholder="Search.." />
           <div>
-            <h4 class="tasks">
+            <h4 className="tasks">
               <strong>tasks</strong>
             </h4>
-            <a class="upcoming">upcoming</a>
-            <a class="today">Today</a>
-            <a class="calender">calender</a>
-            <a class="stickyA">Sticky Wall</a>
+            <a className="upcoming">upcoming</a>
+            <a className="today">Today</a>
+            <a className="calender">calender</a>
+            <a className="stickyA">Sticky Wall</a>
           </div>
           <div>
             <h4>
@@ -46,6 +46,7 @@ function App() {
         </div>
       </div>
       <TaskList/>
+      {/* <AddTask /> */}
     </div>
   );
 }
